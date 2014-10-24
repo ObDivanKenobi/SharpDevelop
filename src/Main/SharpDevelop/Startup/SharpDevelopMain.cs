@@ -63,6 +63,8 @@ namespace ICSharpCode.SharpDevelop.Startup
 		[STAThread()]
 		public static void Main(string[] args)
 		{
+			AppDomain.CurrentDomain.SetShadowCopyFiles();
+			
 			commandLineArgs = args; // Needed by UseExceptionBox
 			
 			// Do not use LoggingService here (see comment in Run(string[]))

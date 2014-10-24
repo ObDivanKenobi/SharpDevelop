@@ -170,35 +170,4 @@ namespace SearchAndReplace
 			properties = PropertyService.NestedProperties(searchPropertyKey);
 		}
 	}
-	
-	public class SearchAndReplaceTextEditorExtension : ITextEditorExtension
-	{
-		SearchPanel panel;
-		
-		public void Attach(ITextEditor editor)
-		{
-			TextArea textArea = editor.GetService(typeof(TextArea)) as TextArea;
-			if (textArea != null) {
-				panel = SearchPanel.Install(textArea);
-				panel.SearchOptionsChanged += SearchOptionsChanged;
-			}
-		}
-
-		void SearchOptionsChanged(object sender, SearchOptionsChangedEventArgs e)
-		{
-			SearchOptions.CurrentFindPattern = e.SearchPattern;
-			SearchOptions.MatchCase = e.MatchCase;
-			SearchOptions.MatchWholeWord = e.WholeWords;
-			SearchOptions.SearchMode = e.UseRegex ? SearchMode.RegEx : SearchMode.Normal;
-		}
-		
-		public void Detach()
-		{
-			if (panel != null) {
-				panel.SearchOptionsChanged -= SearchOptionsChanged;
-				panel.Uninstall();
-				panel = null;
-			}
-		}
-	}
 }

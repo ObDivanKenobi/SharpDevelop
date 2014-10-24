@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+	VerticalAlignment="Center"
+	HorizontalAlignment="Center"
+	x:Class="SearchAndReplace.Gui.SearchAndReplaceDialog"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:core="http://icsharpcode.net/sharpdevelop/core"
+	mc:Ignorable="d"
+	MinWidth="300">
+	
+	<TabControl>
+		<TabItem Header="Search">
+			<DockPanel
+				LastChildFill="False"
+				Margin="3">
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="{core:Localize Dialog.NewProject.SearchReplace.FindWhat}" />
+				<ComboBox
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20"
+					IsEditable="True"></ComboBox>
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="{core:Localize Dialog.NewProject.SearchReplace.SearchIn}" />
+				<DockPanel
+					Margin="2"
+					DockPanel.Dock="Top">
+					<Button
+						Height="20"
+						Width="20"
+						Margin="4,0,0,0"
+						DockPanel.Dock="Right"
+						VerticalAlignment="Top"
+						Content="..."
+						HorizontalAlignment="Right" />
+					<ComboBox
+						Height="20"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Top"></ComboBox>
+				</DockPanel>
+				<CheckBox
+					Margin="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					DockPanel.Dock="Top"
+					Content="{core:Localize Dialog.NewProject.SearchReplace.IncludeSubFolders}" />
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="{core:Localize Dialog.NewProject.SearchReplace.LookAtFileTypes}" />
+				<ComboBox
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20"></ComboBox>
+				<CheckBox
+					Margin="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					DockPanel.Dock="Top"
+					Content="{core:Localize Dialog.NewProject.SearchReplace.MatchCase}" />
+				<CheckBox
+					Margin="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					DockPanel.Dock="Top"
+					Content="{core:Localize Dialog.NewProject.SearchReplace.MatchWholeWord}" />
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="{core:Localize Dialog.NewProject.SearchReplace.UseMethodLabel}" />
+				<ComboBox
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20"></ComboBox>
+				<DockPanel
+					Margin="2"
+					DockPanel.Dock="Top"
+					Height="20"
+					LastChildFill="False">
+					<Button
+						Width="80"
+						Margin="2,0,0,0"
+						DockPanel.Dock="Right"
+						Content="{core:Localize Dialog.NewProject.SearchReplace.MarkAllButton}" />
+					<Button
+						Width="80"
+						Margin="2,0,0,0"
+						DockPanel.Dock="Right"
+						Content="{core:Localize Dialog.NewProject.SearchReplace.FindButton}" />
+					<Button
+						Width="80"
+						Margin="2,0,0,0"
+						DockPanel.Dock="Right"
+						Content="{core:Localize Dialog.NewProject.SearchReplace.FindAll}" />
+				</DockPanel>
+			</DockPanel>
+		
+		
+		</TabItem>
+		<TabItem
+			Header="Replace">
+			<DockPanel
+				LastChildFill="False"
+				Margin="3">
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="Find what:" />
+				<ComboBox
+					IsEditable="True"
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20"></ComboBox>
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="Replace:" />
+				<ComboBox
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20"
+					IsEditable="True"></ComboBox>
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					Text="Find what:"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top" />
+				<DockPanel
+					Margin="2"
+					DockPanel.Dock="Top">
+					<Button
+						Height="20"
+						Width="20"
+						Margin="4,0,0,0"
+						DockPanel.Dock="Right"
+						VerticalAlignment="Top"
+						Content="..."
+						HorizontalAlignment="Right" />
+					<ComboBox
+						Height="20"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Top"></ComboBox>
+				</DockPanel>
+				<CheckBox
+					Margin="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					DockPanel.Dock="Top"
+					Content="Include Sub-Folders" />
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="Look at these File Types:" />
+				<ComboBox
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20.104712041884817"></ComboBox>
+				<CheckBox
+					Margin="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					DockPanel.Dock="Top"
+					Content="Match Case" />
+				<CheckBox
+					Margin="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					DockPanel.Dock="Top"
+					Content="Match whole word" />
+				<TextBlock
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Text="Use:" />
+				<ComboBox
+					Margin="2"
+					DockPanel.Dock="Top"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Top"
+					Height="20"></ComboBox>
+				<DockPanel
+					Margin="2"
+					DockPanel.Dock="Top"
+					Height="20"
+					LastChildFill="False">
+					<Button
+						Width="50"
+						Margin="2,0,0,0"
+						DockPanel.Dock="Right"
+						Content="3" />
+					<Button
+						Width="50"
+						Margin="2,0,0,0"
+						DockPanel.Dock="Right"
+						Content="2" />
+					<Button
+						Width="50"
+						Margin="2,0,0,0"
+						DockPanel.Dock="Right"
+						Content="1" />
+				</DockPanel>
+			</DockPanel>
+		</TabItem>
+	</TabControl>
+</Window>
