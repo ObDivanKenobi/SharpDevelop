@@ -319,10 +319,12 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				foreach (XmlNode childNode in elementChildNodes) {
 					XmlElement childElement = childNode as XmlElement;
 					if (childElement == null || !ObjectChildElementIsPropertyElement(childElement)) {
-						obj.AddProperty(collectionProperty = new XamlProperty(obj, defaultProperty));
 						collectionType = defaultProperty.ReturnType;
 						collectionInstance = defaultProperty.GetValue(obj.Instance);
-						break;
+
+					    if (collectionInstance != null)
+                             obj.AddProperty(collectionProperty = new XamlProperty(obj, defaultProperty));
+                        break;
 					}
 				}
 			}
@@ -343,7 +345,7 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				XamlPropertyValue childValue = ParseValue(childNode);
 				if (childValue != null) {
 					if (collectionProperty != null) {
-						collectionProperty.ParserAddCollectionElement(collectionPropertyElement, childValue);
+                        collectionProperty.ParserAddCollectionElement(collectionPropertyElement, childValue);
 						CollectionSupport.AddToCollection(collectionType, collectionInstance, childValue);
 					} else {
 						if (defaultProperty == null)
