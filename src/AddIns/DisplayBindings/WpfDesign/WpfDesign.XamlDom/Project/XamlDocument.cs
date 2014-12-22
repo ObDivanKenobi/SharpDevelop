@@ -170,8 +170,40 @@ namespace ICSharpCode.WpfDesign.XamlDom
 		{
 			return CreateObject(new NullExtension());
 		}
-		
-		/// <summary>
+
+	    /// <summary>
+	    /// Create a XmlElement for the specified Type
+	    /// </summary>
+        public XmlElement CreateXmlElement(Type elementType)
+	    {
+            string ns = GetNamespaceFor(elementType);
+            string prefix = GetPrefixForNamespace(ns);
+
+            if (elementType.IsGenericType)
+            {
+                var basename = elementType.Name.Remove(elementType.Name.IndexOf('`'));
+                var genArgs = elementType.GetGenericArguments();
+                var xml = _xmlDoc.CreateElement(prefix, basename, ns);
+
+                var typeString = "";
+                foreach (var genArg in genArgs)
+                {
+                    if (typeString != "")
+                        typeString += ",";
+                    var ns2 = GetNamespaceFor(elementType);
+                    var prefix2 = GetPrefixForNamespace(ns2);
+
+                    typeString += prefix2 + ":" + genArg.Name;
+                }
+
+                xml.SetAttribute("x:TypeArguments", typeString);
+                return xml;
+            }
+            
+            return _xmlDoc.CreateElement(prefix, elementType.Name, ns);            
+	    }
+
+	    /// <summary>
 		/// Create a XamlPropertyValue for the specified value instance.
 		/// </summary>
 		public XamlPropertyValue CreatePropertyValue(object instance, XamlProperty forProperty)
@@ -188,11 +220,8 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				return new XamlTextValue(this, c.ConvertToInvariantString(ctx, instance));
 			}
 
-			string ns = GetNamespaceFor(elementType);
-			string prefix = GetPrefixForNamespace(ns);
-			
-			XmlElement xml = _xmlDoc.CreateElement(prefix, elementType.Name, ns);
-
+			var xml = this.CreateXmlElement(elementType);
+		    
 			if (hasStringConverter && (XamlObject.GetContentPropertyName(elementType) != null || IsNativeType(instance))) {
 				xml.InnerText = c.ConvertToInvariantString(instance);
 			} else if (instance is Brush && forProperty != null) {  // TODO: this is a hacky fix, because Brush Editor doesn't
