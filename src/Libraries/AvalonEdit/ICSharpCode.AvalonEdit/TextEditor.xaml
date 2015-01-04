@@ -95,15 +95,21 @@
 							<RowDefinition Height="0.00001*"/>
 							<RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
 						</Grid.RowDefinitions>
-						<Border Grid.Row="1">
-							<Border.Background>
-								<VisualBrush Stretch="UniformToFill">
-									<VisualBrush.Visual>
-										<rendering:TextView Document="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=Content.Document}"/>
-									</VisualBrush.Visual>
-								</VisualBrush>
-							</Border.Background>
-						</Border>
+							<Border Grid.Row="1">
+								<Border.Background>
+									<VisualBrush RenderOptions.BitmapScalingMode="Linear" Stretch="Fill" AutoLayoutContent="True">
+										<VisualBrush.Visual>
+											<ScrollViewer Width="800" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
+												<rendering:TextView 
+													MinHeight="{TemplateBinding ActualHeight}" 
+													Document="{Binding RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type ScrollViewer}}, Path=Content.Document}" />
+											</ScrollViewer>
+										</VisualBrush.Visual>
+									</VisualBrush>
+								</Border.Background>
+							</Border>
+						
+						
 						<RepeatButton Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Themes:ScrollChrome.ScrollGlyph="UpArrow"/>
 						<Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
 							<Track.DecreaseRepeatButton>
@@ -191,7 +197,7 @@
 							
 							<Rectangle Grid.Column="1" Grid.Row="1" Fill="#FFE9EEF4"/>
 							
-							<ScrollBar x:Name="PART_VerticalScrollBar" Width="50"
+							<ScrollBar x:Name="PART_VerticalScrollBar" Width="80"
 							           AutomationProperties.AutomationId="VerticalScrollBar"
 							           IsTabStop="False"
 							           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
