@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
+using ICSharpCode.WpfDesign.Interfaces;
 
 namespace ICSharpCode.WpfDesign
 {
@@ -31,7 +32,7 @@ namespace ICSharpCode.WpfDesign
 	/// enabling Undo/Redo support.
 	/// Warning: Changes directly done to control instances might not be reflected in the model.
 	/// </summary>
-	public abstract class DesignItemProperty
+	public abstract class DesignItemProperty : INotifyPropertyChanged
 	{
 		/// <summary>
 		/// Gets the property name.
@@ -73,7 +74,7 @@ namespace ICSharpCode.WpfDesign
 		/// <summary>
 		/// Gets the elements represented by the collection.
 		/// </summary>
-		public abstract IList<DesignItem> CollectionElements { get; }
+        public abstract IObservableList<DesignItem> CollectionElements { get; }
 		
 		/// <summary>
 		/// Gets the value of the property. This property returns null if the value is not set,
@@ -148,7 +149,12 @@ namespace ICSharpCode.WpfDesign
 			}
 		}
 
-		/// <summary>
+        public object ValueOnInstanceOrView
+        {
+            get { return Value == null ? ValueOnInstance : Value.View; }
+        }
+
+        /// <summary>
 		/// Gets the full name of the dependency property. Returns the normal FullName if the property
 		/// isn't a dependency property.
 		/// </summary>
@@ -160,6 +166,14 @@ namespace ICSharpCode.WpfDesign
 				return FullName;
 			}
 		}
+
+	    public event PropertyChangedEventHandler PropertyChanged;
+
+	    protected virtual void OnPropertyChanged(string propertyName)
+	    {
+	        var handler = PropertyChanged;
+	        if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+	    }
 	}
 	
 	/// <summary>

@@ -31,7 +31,7 @@ namespace ICSharpCode.WpfDesign.Designer.Controls
 	/// <summary>
 	/// Gray out everything except a specific area.
 	/// </summary>
-	sealed class InfoTextEnterArea : FrameworkElement
+	public sealed class InfoTextEnterArea : FrameworkElement
 	{
 		Geometry designSurfaceRectangle;
 		Geometry activeAreaGeometry;
@@ -66,13 +66,13 @@ namespace ICSharpCode.WpfDesign.Designer.Controls
 			currentAnimateActiveAreaRectToTarget = newRect;
 		}
 		
-		internal static void Start(ref InfoTextEnterArea grayOut, ServiceContainer services, UIElement activeContainer, string text)
+		public static void Start(ref InfoTextEnterArea grayOut, ServiceContainer services, UIElement activeContainer, string text)
 		{
 			Debug.Assert(activeContainer != null);
 			Start(ref grayOut, services, activeContainer, new Rect(activeContainer.RenderSize), text);
 		}
-		
-		internal static void Start(ref InfoTextEnterArea grayOut, ServiceContainer services, UIElement activeContainer, Rect activeRectInActiveContainer, string text)
+
+        public static void Start(ref InfoTextEnterArea grayOut, ServiceContainer services, UIElement activeContainer, Rect activeRectInActiveContainer, string text)
 		{
 			Debug.Assert(services != null);
 			Debug.Assert(activeContainer != null);
@@ -103,7 +103,7 @@ namespace ICSharpCode.WpfDesign.Designer.Controls
 		
 		static readonly TimeSpan animationTime = new TimeSpan(2000000);
 		
-		internal static void Stop(ref InfoTextEnterArea grayOut)
+		public static void Stop(ref InfoTextEnterArea grayOut)
 		{
 			if (grayOut != null) {
 				IDesignPanel designPanel = grayOut.designPanel;

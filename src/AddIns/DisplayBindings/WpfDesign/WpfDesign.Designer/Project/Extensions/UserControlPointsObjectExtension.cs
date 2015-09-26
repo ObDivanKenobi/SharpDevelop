@@ -35,14 +35,6 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 	//[ExtensionFor(typeof(Line), OverrideExtensions = new Type[] { typeof(ResizeThumbExtension), typeof(SelectedElementRectangleExtension), typeof(CanvasPositionExtension), typeof(QuickOperationMenuExtension), typeof(RotateThumbExtension), typeof(RenderTransformOriginExtension), typeof(InPlaceEditorExtension), typeof(SkewThumbExtension) })]
 	public abstract class UserControlPointsObjectExtension : LineExtensionBase
 	{
-		/// <summary>
-		/// Used instead of Rect to allow negative values on "Width" and "Height" (here called X and Y).
-		/// </summary>
-		class Bounds
-		{
-			public double X, Y, Left, Top;
-		}
-		
 		//
 		private double CurrentX2;
 		private double CurrentY2;
@@ -69,42 +61,6 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 			DragListener.Completed += drag_Completed;
 			
 			return designerThumb;
-		}
-
-		Bounds CalculateDrawing(double x, double y, double left, double top, double xleft, double xtop)
-		{
-
-			Double theta = (180 / Math.PI) * Math.Atan2(y, x);
-			double verticaloffset = Math.Abs(90 - Math.Abs(theta));
-			if (Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.RightAlt))
-			{
-				if (Math.Abs(theta) < 45 || Math.Abs(theta) > 135)
-				{
-					y = 0;
-					top = xtop;
-				}
-				else if (verticaloffset < 45)
-				{
-					x = 0;
-					left = xleft;
-				}
-			}
-			else if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
-			{
-				if (verticaloffset < 10)
-				{
-					x = 0;
-					left = xleft;
-				}
-				else if (Math.Abs(theta) < 10 || Math.Abs(theta) > 170)
-				{
-					y = 0;
-					top = xtop;
-				}
-			}
-
-			SetSurfaceInfo(0, 3, Math.Round((180 / Math.PI) * Math.Atan2(y, x), 0).ToString());
-			return new Bounds { X = Math.Round(x, 1), Y = Math.Round(y, 1), Left = Math.Round(left, 1), Top = Math.Round(top, 1) };
 		}
 
 		#region eventhandlers
@@ -135,7 +91,8 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 		{
 			Line al = ExtendedItem.View as Line;
 
-			var alignment = (drag.Target as UserControlPointsObjectThumb).Alignment;
+			var thumb = drag.Target as UserControlPointsObjectThumb;
+			var alignment = thumb.Alignment;
 			var info = operation.PlacedItems[0];
 			double dx = 0;
 			double dy = 0;
@@ -166,24 +123,19 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 				left = xleft = CurrentLeft;
 			}
 			
-			Bounds position = CalculateDrawing(x, y, left, top, xleft, xtop);
-
-			ExtendedItem.Properties.GetProperty(Line.X1Property).SetValue(0);
-			ExtendedItem.Properties.GetProperty(Line.Y1Property).SetValue(0);
-			ExtendedItem.Properties.GetProperty(Line.X2Property).SetValue(position.X);
-			ExtendedItem.Properties.GetProperty(Line.Y2Property).SetValue(position.Y);
-
-			if (operation != null) {
-				var result = info.OriginalBounds;
-				result.X = position.Left;
-				result.Y = position.Top;
-				result.Width = Math.Abs(position.X);
-				result.Height = Math.Abs(position.Y);
-
-				info.Bounds = result.Round();
-				operation.CurrentContainerBehavior.BeforeSetPosition(operation);
-				operation.CurrentContainerBehavior.SetPosition(info);
-			}
+//			Bounds position = CalculateDrawing(x, y, left, top, xleft, xtop);
+			ExtendedItem.Properties.GetProperty(thumb.DependencyProperty).SetValue(new Point(x, y));
+//			if (operation != null) {
+//				var result = info.OriginalBounds;
+//				result.X = position.Left;
+//				result.Y = position.Top;
+//				result.Width = Math.Abs(position.X);
+//				result.Height = Math.Abs(position.Y);
+//
+//				info.Bounds = result.Round();
+//				operation.CurrentContainerBehavior.BeforeSetPosition(operation);
+//				operation.CurrentContainerBehavior.SetPosition(info);
+//			}
 			
 			(drag.Target as UserControlPointsObjectThumb).InvalidateArrange();
 			ResetWidthHeightProperties();
@@ -225,11 +177,13 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 		{
 			base.OnInitialized();
 			
-			FillThumbProperties();
-			
+			_thumbProperties = FillThumbProperties();
+			var thumbs = new List<UserControlPointsObjectThumb>();
 			foreach (var prp in _thumbProperties) {
-				CreateThumb(PlacementAlignment.Center, Cursors.Cross, prp);
+				thumbs.Add(CreateThumb(PlacementAlignment.Center, Cursors.Cross, prp));
 			}
+			
+			resizeThumbs = thumbs;
 			
 			extendedItemArray[0] = this.ExtendedItem;
 
@@ -241,5 +195,41 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 		}
 
 		protected abstract IEnumerable<DependencyProperty> FillThumbProperties();		
+		
+		protected virtual Bounds CalculateDrawing(double x, double y, double left, double top, double xleft, double xtop)
+		{
+
+			Double theta = (180 / Math.PI) * Math.Atan2(y, x);
+			double verticaloffset = Math.Abs(90 - Math.Abs(theta));
+			if (Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.RightAlt))
+			{
+				if (Math.Abs(theta) < 45 || Math.Abs(theta) > 135)
+				{
+					y = 0;
+					top = xtop;
+				}
+				else if (verticaloffset < 45)
+				{
+					x = 0;
+					left = xleft;
+				}
+			}
+			else if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
+			{
+				if (verticaloffset < 10)
+				{
+					x = 0;
+					left = xleft;
+				}
+				else if (Math.Abs(theta) < 10 || Math.Abs(theta) > 170)
+				{
+					y = 0;
+					top = xtop;
+				}
+			}
+
+			SetSurfaceInfo(0, 3, Math.Round((180 / Math.PI) * Math.Atan2(y, x), 0).ToString());
+			return new Bounds { X = Math.Round(x, 1), Y = Math.Round(y, 1), Left = Math.Round(left, 1), Top = Math.Round(top, 1) };
+		}
 	}
 }

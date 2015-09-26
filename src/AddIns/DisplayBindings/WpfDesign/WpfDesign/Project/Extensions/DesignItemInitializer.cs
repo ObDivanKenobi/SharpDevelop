@@ -17,34 +17,18 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
 
-namespace ICSharpCode.WpfDesign.Designer.Controls
+namespace ICSharpCode.WpfDesign.Extensions
 {
 	/// <summary>
-	/// Display height of the element.
+	/// Base class for extensions that initialize new controls with default values.
 	/// </summary>
-	public class HeightDisplay : Control
+	[ExtensionServer(typeof(NeverApplyExtensionsExtensionServer))]
+    public abstract class DesignItemInitializer : Extension
 	{
-		static HeightDisplay()
-		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(HeightDisplay), new FrameworkPropertyMetadata(typeof(HeightDisplay)));
-		}
-	}
-
-	/// <summary>
-	/// Display width of the element.
-	/// </summary>
-	public class WidthDisplay : Control
-	{
-		static WidthDisplay()
-		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(WidthDisplay), new FrameworkPropertyMetadata(typeof(WidthDisplay)));
-		}
+		/// <summary>
+		/// Initializes the design item.
+		/// </summary>
+		public abstract void InitializeDesignItem(DesignItem item);
 	}
 }

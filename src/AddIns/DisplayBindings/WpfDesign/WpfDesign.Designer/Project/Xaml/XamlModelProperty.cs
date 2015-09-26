@@ -25,6 +25,7 @@ using ICSharpCode.WpfDesign.XamlDom;
 using ICSharpCode.WpfDesign.Designer.Services;
 using System.Windows;
 using System.Windows.Markup;
+using ICSharpCode.WpfDesign.Interfaces;
 
 namespace ICSharpCode.WpfDesign.Designer.Xaml
 {
@@ -49,6 +50,17 @@ namespace ICSharpCode.WpfDesign.Designer.Xaml
 			if (property.IsCollection) {
 				_collectionElements = new XamlModelCollectionElementsCollection(this, property);
 			}
+
+		    ValueChanged += (x, y) =>
+		    {
+		        OnPropertyChanged("Value");
+                OnPropertyChanged("ValueOnInstanceOrView");                
+		    };
+            ValueOnInstanceChanged += (x, y) =>
+            {
+                OnPropertyChanged("ValueOnInstance");
+                OnPropertyChanged("ValueOnInstanceOrView");
+            };
 		}
 		
 		public override bool Equals(object obj)
@@ -96,8 +108,9 @@ namespace ICSharpCode.WpfDesign.Designer.Xaml
 		public override System.ComponentModel.TypeConverter TypeConverter {
 			get { return _property.TypeConverter; }
 		}
-		
-		public override System.Collections.Generic.IList<DesignItem> CollectionElements {
+
+        public override IObservableList<DesignItem> CollectionElements
+        {
 			get {
 				if (!IsCollection)
 					throw new DesignerException("Cannot access CollectionElements for non-collection properties.");

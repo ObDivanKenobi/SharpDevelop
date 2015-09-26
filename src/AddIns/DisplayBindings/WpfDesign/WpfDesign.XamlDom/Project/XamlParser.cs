@@ -587,8 +587,11 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				return FindAttachedProperty(typeof(DesignTimeProperties), attribute.LocalName);
 			} else if (attribute.LocalName == "DataContext" && attribute.NamespaceURI == XamlConstants.DesignTimeNamespace) {
 				return FindAttachedProperty(typeof(DesignTimeProperties), attribute.LocalName);
-			}
-			
+            } else if (attribute.LocalName == "Class" && attribute.NamespaceURI == XamlConstants.XamlNamespace) {
+                return FindAttachedProperty(typeof(XamlNamespaceProperties), attribute.LocalName);
+            } else if (attribute.LocalName == "Class" && attribute.NamespaceURI == XamlConstants.Xaml2009Namespace) {
+                return FindAttachedProperty(typeof(XamlNamespaceProperties), attribute.LocalName);
+            }
 
 			return null;
 		}

@@ -275,6 +275,21 @@ namespace ICSharpCode.WpfDesign.Extensions
 				}
 			}
 		}
+
+        public void ApplyDesignItemInitializers(DesignItem item)
+        {
+            if (item == null)
+                throw new ArgumentNullException("item");
+
+            foreach (ExtensionEntry entry in GetExtensionEntries(item))
+            {
+                if (typeof(DesignItemInitializer).IsAssignableFrom(entry.ExtensionType))
+                {
+                    DesignItemInitializer initializer = (DesignItemInitializer)Activator.CreateInstance(entry.ExtensionType);
+                    initializer.InitializeDesignItem(item);
+                }
+            }
+        }
 		#endregion
 	}
 }

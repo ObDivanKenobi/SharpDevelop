@@ -94,57 +94,57 @@
     <Compile Include="Controls\Thumbs\PointThumb.cs" />
     <Compile Include="Controls\Thumbs\ResizeThumb.cs" />
     <Compile Include="Extensions\BorderForImageControl.cs" />
-    <Compile Include="Extensions\DrawLineExtension.cs" />
-    <Compile Include="Extensions\DrawPathExtension.cs" />
-    <Compile Include="Extensions\DrawPolyLineExtension.cs" />
-    <Compile Include="Extensions\DefaultCommandsContextMenu.xaml.cs">
+    <Compile Include="Extensions\Draw\DrawLineExtension.cs" />
+    <Compile Include="Extensions\Draw\DrawPathExtension.cs" />
+    <Compile Include="Extensions\Draw\DrawPolyLineExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\DefaultCommandsContextMenu.xaml.cs">
       <DependentUpon>DefaultCommandsContextMenu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\DefaultCommandsContextMenuExtension.cs" />
-    <Compile Include="Extensions\LineExtensionBase.cs" />
-    <Compile Include="Extensions\LineHandlerExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\DefaultCommandsContextMenuExtension.cs" />
+    <Compile Include="Extensions\Draw\LineExtensionBase.cs" />
+    <Compile Include="Extensions\Draw\LineHandlerExtension.cs" />
     <Compile Include="Controls\Thumbs\MultiPointThumb.cs" />
     <Compile Include="Extensions\PartialPanelSelectionHandler.cs" />
-    <Compile Include="Extensions\EditStyleContextMenu.xaml.cs">
+    <Compile Include="Extensions\ContextMenus\EditStyleContextMenu.xaml.cs">
       <DependentUpon>EditStyleContextMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\PathContextMenu.xaml.cs">
+    <Compile Include="Extensions\ContextMenus\PathContextMenu.xaml.cs">
       <DependentUpon>PathContextMenu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\PathContextMenuExtension.cs" />
-    <Compile Include="Extensions\PathHandlerExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\PathContextMenuExtension.cs" />
+    <Compile Include="Extensions\Draw\PathHandlerExtension.cs" />
     <Compile Include="Extensions\PointTrackerPlacementSupport.cs" />
-    <Compile Include="Extensions\PolyLineHandlerExtension.cs" />
-    <Compile Include="Extensions\TextBlockRightClickContextMenu.xaml.cs">
+    <Compile Include="Extensions\Draw\PolyLineHandlerExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\TextBlockRightClickContextMenu.xaml.cs">
       <DependentUpon>TextBlockRightClickContextMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\RightClickContextMenu.xaml.cs">
+    <Compile Include="Extensions\ContextMenus\RightClickContextMenu.xaml.cs">
       <DependentUpon>RightClickContextMenu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\RenderTransformOriginExtension.cs" />
-    <Compile Include="Extensions\RightClickContextMenuExtension.cs" />
-    <Compile Include="Extensions\EditStyleContextMenuExtension.cs" />
-    <Compile Include="Extensions\TextBlockRightClickContextMenuExtension.cs" />
-    <Compile Include="Extensions\ArrangeItemsContextMenuExtension.cs" />
-    <Compile Include="Extensions\ArrangeItemsContextMenu.xaml.cs">
+    <Compile Include="Extensions\ContextMenus\RightClickContextMenuExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\EditStyleContextMenuExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\TextBlockRightClickContextMenuExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\ArrangeItemsContextMenuExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\ArrangeItemsContextMenu.xaml.cs">
       <DependentUpon>ArrangeItemsContextMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Extensions\UserControlPointsObjectExtension.cs" />
-    <Compile Include="Extensions\WrapItemContextMenu.xaml.cs">
+    <Compile Include="Extensions\ContextMenus\WrapItemContextMenu.xaml.cs">
       <DependentUpon>WrapItemContextMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\WrapItemsContextMenuExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\WrapItemsContextMenuExtension.cs" />
     <Compile Include="MarkupExtensions\DesignItemBinding.cs" />
     <Compile Include="OutlineView\OutlineNodeNameService.cs" />
     <Compile Include="OutlineView\OutlineNodeBase.cs" />
-    <Compile Include="Extensions\WrapItemContextMenuExtension.cs" />
-    <Compile Include="Extensions\WrapItemsContextMenu.xaml.cs">
+    <Compile Include="Extensions\ContextMenus\WrapItemContextMenuExtension.cs" />
+    <Compile Include="Extensions\ContextMenus\WrapItemsContextMenu.xaml.cs">
       <DependentUpon>WrapItemsContextMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\SkewThumbExtension.cs" />
+    <Compile Include="Extensions\Transformation\SkewThumbExtension.cs" />
     <Compile Include="Extensions\TopLeftContainerDragHandleMultipleItems.cs" />
     <Compile Include="PropertyGrid\Editors\ColorEditor.xaml.cs">
       <DependentUpon>ColorEditor.xaml</DependentUpon>
@@ -209,28 +209,28 @@
     <Compile Include="DesignSurface.cs" />
     <Compile Include="DragDropExceptionHandler.cs" />
     <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="Extensions\CanvasPlacementSupport.cs">
+    <Compile Include="Extensions\Placement\CanvasPlacementSupport.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\BorderForInvisibleControl.cs" />
     <Compile Include="Extensions\CanvasPositionExtension.cs" />
     <Compile Include="Extensions\Initializers.cs" />
-    <Compile Include="Extensions\DefaultPlacementBehavior.cs">
+    <Compile Include="Extensions\Placement\DefaultPlacementBehavior.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\GridAdornerProvider.cs" />
-    <Compile Include="Extensions\GridPlacementSupport.cs" />
+    <Compile Include="Extensions\Placement\GridPlacementSupport.cs" />
     <Compile Include="Extensions\InPlaceEditorExtension.cs" />
     <Compile Include="Extensions\MarginHandleExtension.cs" />
     <Compile Include="Extensions\QuickOperationMenuExtension.cs" />
-    <Compile Include="Extensions\RasterPlacementBehavior.cs" />
-    <Compile Include="Extensions\RotateThumbExtension.cs" />
+    <Compile Include="Extensions\Placement\RasterPlacementBehavior.cs" />
+    <Compile Include="Extensions\Transformation\RotateThumbExtension.cs" />
     <Compile Include="Extensions\SizeDisplayExtension.cs" />
-    <Compile Include="Extensions\SnaplinePlacementBehavior.cs">
+    <Compile Include="Extensions\Placement\SnaplinePlacementBehavior.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\PanelMove.cs" />
-    <Compile Include="Extensions\StackPanelPlacementSupport.cs" />
+    <Compile Include="Extensions\Placement\StackPanelPlacementSupport.cs" />
     <Compile Include="FocusNavigator.cs" />
     <Compile Include="ModelTools.cs" />
     <Compile Include="Extensions\PanelInstanceFactory.cs" />
@@ -326,22 +326,22 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\NullableComboBox.xaml" />
-    <Page Include="Extensions\DefaultCommandsContextMenu.xaml" />
-    <Page Include="Extensions\EditStyleContextMenu.xaml">
+    <Page Include="Extensions\ContextMenus\DefaultCommandsContextMenu.xaml" />
+    <Page Include="Extensions\ContextMenus\EditStyleContextMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Extensions\PathContextMenu.xaml" />
-    <Page Include="Extensions\TextBlockRightClickContextMenu.xaml">
+    <Page Include="Extensions\ContextMenus\PathContextMenu.xaml" />
+    <Page Include="Extensions\ContextMenus\TextBlockRightClickContextMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Extensions\RightClickContextMenu.xaml" />
-    <Page Include="Extensions\ArrangeItemsContextMenu.xaml">
+    <Page Include="Extensions\ContextMenus\RightClickContextMenu.xaml" />
+    <Page Include="Extensions\ContextMenus\ArrangeItemsContextMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Extensions\WrapItemContextMenu.xaml">
+    <Page Include="Extensions\ContextMenus\WrapItemContextMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Extensions\WrapItemsContextMenu.xaml">
+    <Page Include="Extensions\ContextMenus\WrapItemsContextMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PropertyGrid\Editors\ColorEditor.xaml" />
@@ -523,7 +523,5 @@
     <Resource Include="Images\Icons.16x16.RedoIcon.png" />
     <Resource Include="Images\Icons.16x16.UndoIcon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MarkupExtensions" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

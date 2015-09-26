@@ -24,10 +24,11 @@ using System.Windows;
 using ICSharpCode.WpfDesign.XamlDom;
 using ICSharpCode.WpfDesign.Designer.Services;
 using System.Collections.Specialized;
+using ICSharpCode.WpfDesign.Interfaces;
 
 namespace ICSharpCode.WpfDesign.Designer.Xaml
 {
-	sealed class XamlModelCollectionElementsCollection : IList<DesignItem>, INotifyCollectionChanged
+    sealed class XamlModelCollectionElementsCollection : IObservableList<DesignItem>, INotifyCollectionChanged
 	{
 		readonly XamlModelProperty modelProperty;
 		readonly XamlProperty property;

@@ -158,7 +158,7 @@ namespace ICSharpCode.WpfDesign.Designer
 							if (hitTestType == HitTestType.ElementSelection)
 							{
 								if (Keyboard.IsKeyDown(Key.LeftAlt))
-									if (lastElement != null && lastElement != _context.RootItem.Component &&
+									if (lastElement != null && lastElement != _context.RootItem.View &&
 									    hitTestElements.Contains(lastElement))
 								{
 									var idx = hitTestElements.IndexOf(lastElement) - 1;

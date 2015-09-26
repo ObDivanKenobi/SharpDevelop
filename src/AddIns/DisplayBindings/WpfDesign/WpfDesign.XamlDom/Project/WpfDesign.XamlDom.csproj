@@ -72,6 +72,7 @@
     <Compile Include="DesignInstanceExtension.cs" />
     <Compile Include="DesignTimeProperties.cs" />
     <Compile Include="IXamlErrorSink.cs" />
+    <Compile Include="XamlNamespaceProperties.cs" />
     <Compile Include="MarkupCompatibilityProperties.cs" />
     <Compile Include="MarkupExtensionParser.cs" />
     <Compile Include="MarkupExtensionPrinter.cs" />

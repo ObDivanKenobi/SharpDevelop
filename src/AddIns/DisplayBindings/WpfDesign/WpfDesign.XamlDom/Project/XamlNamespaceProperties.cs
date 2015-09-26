@@ -16,35 +16,40 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Security.Cryptography;
 using System.Windows;
-using System.Windows.Controls;
 
-namespace ICSharpCode.WpfDesign.Designer.Controls
+namespace ICSharpCode.WpfDesign.XamlDom
 {
 	/// <summary>
-	/// Display height of the element.
+	/// Helper Class for the Markup Compatibility Properties used by VS and Blend
 	/// </summary>
-	public class HeightDisplay : Control
+    public class XamlNamespaceProperties : FrameworkElement
 	{
-		static HeightDisplay()
-		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(HeightDisplay), new FrameworkPropertyMetadata(typeof(HeightDisplay)));
-		}
-	}
+		#region Class
 
-	/// <summary>
-	/// Display width of the element.
-	/// </summary>
-	public class WidthDisplay : Control
-	{
-		static WidthDisplay()
+		/// <summary>
+        /// Getter for the <see cref="ClassProperty"/>
+		/// </summary>
+		public static string GetClass(DependencyObject obj)
 		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(WidthDisplay), new FrameworkPropertyMetadata(typeof(WidthDisplay)));
+			return (string)obj.GetValue(ClassProperty);
 		}
+
+		/// <summary>
+        /// Setter for the <see cref="ClassProperty"/>
+		/// </summary>
+		public static void SetClass(DependencyObject obj, string value)
+		{
+            obj.SetValue(ClassProperty, value);
+		}
+
+		/// <summary>
+		/// Class-Name
+		/// </summary>
+        public static readonly DependencyProperty ClassProperty =
+            DependencyProperty.RegisterAttached("Class", typeof(string), typeof(XamlNamespaceProperties));
+		
+		#endregion
 	}
 }

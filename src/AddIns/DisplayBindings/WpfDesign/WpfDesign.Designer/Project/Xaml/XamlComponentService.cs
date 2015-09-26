@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Markup;
 using System.Windows;
@@ -69,10 +70,13 @@ namespace ICSharpCode.WpfDesign.Designer.Xaml
 				throw new ArgumentNullException("component");
 			XamlDesignItem site;
 			_sites.TryGetValue(component, out site);
-			return site;
+
+		    site = site ?? _sites.Values.FirstOrDefault(x => Equals(x.View, component));
+		    
+            return site;
 		}
 
-		public void SetDefaultPropertyValues(DesignItem designItem)
+        public void SetDefaultPropertyValues(DesignItem designItem)
 		{
 			var values = Metadata.GetDefaultPropertyValues(designItem.ComponentType);
 			if (values != null) {
@@ -91,6 +95,8 @@ namespace ICSharpCode.WpfDesign.Designer.Xaml
 			}
 			
 			XamlDesignItem item = new XamlDesignItem(_context.Document.CreateObject(component), _context);
+            _context.Services.ExtensionManager.ApplyDesignItemInitializers(item);
+
 			if (!(component is string))
 				_sites.Add(component, item);
 			if (ComponentRegistered != null) {
@@ -114,6 +120,8 @@ namespace ICSharpCode.WpfDesign.Designer.Xaml
 			}
 			
 			XamlDesignItem site = new XamlDesignItem(obj, _context);
+            _context.Services.ExtensionManager.ApplyDesignItemInitializers(site);
+
 			_sites.Add(site.Component, site);
 			if (ComponentRegistered != null) {
 				ComponentRegistered(this, new DesignItemEventArgs(site));

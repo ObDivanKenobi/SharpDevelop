@@ -76,9 +76,11 @@
     <Compile Include="DrawItemExtension.cs" />
     <Compile Include="DummyValueInsteadOfNullTypeDescriptionProvider.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Extensions\DesignItemInitializer.cs" />
     <Compile Include="Extensions\ExtensionAttribute.cs" />
     <Compile Include="Extensions\ExtensionInterfaces.cs" />
     <Compile Include="HitTestType.cs" />
+    <Compile Include="Interfaces\IObservableList.cs" />
     <Compile Include="Metadata.cs" />
     <Compile Include="PlacementInformation.cs" />
     <Compile Include="PlacementBehavior.cs" />
@@ -121,7 +123,5 @@
   <ItemGroup>
     <CodeAnalysisDictionary Include="Configuration\CodeAnalysisDictionary.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UIExtensions" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

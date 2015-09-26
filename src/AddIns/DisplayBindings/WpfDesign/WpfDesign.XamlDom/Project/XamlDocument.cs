@@ -225,6 +225,8 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				return XamlConstants.DesignTimeNamespace;
 			if (type == typeof (MarkupCompatibilityProperties))
 				return XamlConstants.MarkupCompatibilityNamespace;
+            if (type == typeof(XamlNamespaceProperties))
+                return XamlConstants.Xaml2009Namespace;
 
 			return _typeFinder.GetXmlNamespaceFor(type.Assembly, type.Namespace, getClrNamespace);
 		}
@@ -235,6 +237,8 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				return new List<string>(){XamlConstants.DesignTimeNamespace};
 			if (type == typeof (MarkupCompatibilityProperties))
 				return new List<string>(){XamlConstants.MarkupCompatibilityNamespace};
+            if (type == typeof(XamlNamespaceProperties))
+                return new List<string>() { XamlConstants.Xaml2009Namespace, XamlConstants.XamlNamespace };
 
 			return _typeFinder.GetXmlNamespacesFor(type.Assembly, type.Namespace, getClrNamespace);
 		}
@@ -248,6 +252,22 @@ namespace ICSharpCode.WpfDesign.XamlDom
 
 			string prefix = _xmlDoc.DocumentElement.GetPrefixOfNamespace(@namespace);
 
+		    if (_xmlDoc.DocumentElement.NamespaceURI == @namespace && _xmlDoc.Prefix == String.Empty)
+		    {
+		        return string.Empty;
+		    }
+
+            //if (string.IsNullOrEmpty(prefix))
+            //{
+            //    var attr =
+            //        (_xmlDoc.DocumentElement.Attributes.Cast<XmlAttribute>()
+            //            .FirstOrDefault(x => x.Name.StartsWith("xmlns:") && x.Value == @namespace));
+            //    if (attr != null)
+            //    {
+            //        prefix = attr.Name.Split(':')[1];
+            //    }
+            //}
+            
 			if (String.IsNullOrEmpty(prefix))
 			{
 				prefix = _typeFinder.GetPrefixForXmlNamespace(@namespace);
