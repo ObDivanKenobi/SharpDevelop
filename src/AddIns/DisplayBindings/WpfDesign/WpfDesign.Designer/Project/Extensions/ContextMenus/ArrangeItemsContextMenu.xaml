@@ -1,4 +1,4 @@
-﻿<ContextMenu x:Class="ICSharpCode.WpfDesign.Designer.Extensions.ArrangeItemsContextMenu"
+﻿<ContextMenu x:Class="ICSharpCode.WpfDesign.Designer.Extensions.ContextMenus.ArrangeItemsContextMenu"
              xmlns="http://schemas.microsoft.com/netfx/2007/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Translation="clr-namespace:ICSharpCode.WpfDesign.Designer"

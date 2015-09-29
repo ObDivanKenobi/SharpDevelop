@@ -303,6 +303,8 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 			AddLines(containerRect, -Margin, false);
 			
 			AddLines(containerRect, 0, false);
+			
+			AddContainerSnaplines(containerRect, horizontalMap, verticalMap);
 
 			if (!CanPlace(operation.PlacedItems.Select(x => x.Item), operation.Type, PlacementAlignment.Center))
 				return;
@@ -319,7 +321,11 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 				}
 			}
 		}
-		
+
+		protected virtual void AddContainerSnaplines(Rect containerRect, List<SnaplinePlacementBehavior.Snapline> horizontalMap, List<SnaplinePlacementBehavior.Snapline> verticalMap)
+		{	
+		}
+
 		void AddLines(Rect r, double inflate, bool requireOverlap)
 		{
 			AddLines(r, inflate, requireOverlap, horizontalMap, verticalMap, null);
@@ -459,7 +465,7 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 		}
 		
 		[DebuggerDisplay("Snapline: {Offset}")]
-		class Snapline
+		protected class Snapline
 		{
 			public double Offset;
 			public double Start;

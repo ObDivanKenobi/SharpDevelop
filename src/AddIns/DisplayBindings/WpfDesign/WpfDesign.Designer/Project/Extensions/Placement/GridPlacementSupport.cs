@@ -110,6 +110,27 @@ namespace ICSharpCode.WpfDesign.Designer.Extensions
 			}
 			return grid.RowDefinitions.Count - 1;
 		}
+
+		protected override void AddContainerSnaplines(Rect containerRect, List<SnaplinePlacementBehavior.Snapline> horizontalMap, List<SnaplinePlacementBehavior.Snapline> verticalMap)
+		{
+			var grid = (Grid)ExtendedItem.View;
+			double offset = 0;
+			foreach (RowDefinition r in grid.RowDefinitions)
+			{
+				offset += r.ActualHeight;
+				horizontalMap.Add(new Snapline() { RequireOverlap = false, Offset = offset - Margin, Start = offset, End = containerRect.Right });
+				horizontalMap.Add(new Snapline() { RequireOverlap = false, Offset = offset, Start = offset, End = containerRect.Right });
+				horizontalMap.Add(new Snapline() { RequireOverlap = false, Offset = offset + Margin, Start = offset, End = containerRect.Right });
+			}
+			offset = 0;
+			foreach (ColumnDefinition c in grid.ColumnDefinitions)
+			{
+				offset += c.ActualWidth;
+				verticalMap.Add(new Snapline() { RequireOverlap = false, Offset = offset - Margin, Start = containerRect.Top, End = containerRect.Bottom });
+				verticalMap.Add(new Snapline() { RequireOverlap = false, Offset = offset, Start = containerRect.Top, End = containerRect.Bottom });
+				verticalMap.Add(new Snapline() { RequireOverlap = false, Offset = offset + Margin, Start = containerRect.Top, End = containerRect.Bottom });
+			}			
+		}
 		
 		static void SetColumn(DesignItem item, int column, int columnSpan)
 		{

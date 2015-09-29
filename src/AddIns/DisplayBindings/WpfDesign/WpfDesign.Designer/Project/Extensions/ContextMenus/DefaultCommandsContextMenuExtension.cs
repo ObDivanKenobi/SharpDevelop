@@ -16,14 +16,12 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using ICSharpCode.WpfDesign.Adorners;
 using ICSharpCode.WpfDesign.Extensions;
 
-namespace ICSharpCode.WpfDesign.Designer.Extensions
+namespace ICSharpCode.WpfDesign.Designer.Extensions.ContextMenus
 {
 	[ExtensionServer(typeof(PrimarySelectionExtensionServer))]
 	[ExtensionFor(typeof (UIElement))]

@@ -287,7 +287,9 @@ namespace ICSharpCode.WpfDesign.XamlDom
 				if (attribute.Name == "xml:space") {
 					continue;
 				}
-				if (GetAttributeNamespace(attribute) == XamlConstants.XamlNamespace) {
+				if (GetAttributeNamespace(attribute) == XamlConstants.XamlNamespace 
+					|| GetAttributeNamespace(attribute) == XamlConstants.Xaml2009Namespace)
+				{
 					if (attribute.LocalName == "Name") {
 						try {
 							NameScopeHelper.NameChanged(obj, null, attribute.Value);
@@ -369,6 +371,8 @@ namespace ICSharpCode.WpfDesign.XamlDom
 					XmlElement childElement = childNode as XmlElement;
 					if (childElement != null) {
 						if (childElement.NamespaceURI == XamlConstants.XamlNamespace)
+							continue;
+						if (childElement.NamespaceURI == XamlConstants.Xaml2009Namespace)
 							continue;
 						
 						if (ObjectChildElementIsPropertyElement(childElement)) {

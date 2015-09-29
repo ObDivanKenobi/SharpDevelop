@@ -21,12 +21,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
-
-using System.Windows.Controls;
+using System.Linq;
 using System.Windows.Media;
+
 using ICSharpCode.WpfDesign.UIExtensions;
 using ICSharpCode.WpfDesign.Extensions;
-using System.Linq;
 
 namespace ICSharpCode.WpfDesign
 {

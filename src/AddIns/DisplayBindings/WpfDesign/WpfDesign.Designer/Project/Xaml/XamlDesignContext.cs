@@ -71,6 +71,7 @@ namespace ICSharpCode.WpfDesign.Designer.Xaml
 				throw new ArgumentNullException("loadSettings");
 			
 			this.Services.AddService(typeof(ISelectionService), new DefaultSelectionService());
+			this.Services.AddService(typeof(IComponentPropertyService), new ComponentPropertyService());
 			this.Services.AddService(typeof(IToolService), new DefaultToolService(this));
 			this.Services.AddService(typeof(UndoService), new UndoService());
 			this.Services.AddService(typeof(IErrorService), new DefaultErrorService(this));

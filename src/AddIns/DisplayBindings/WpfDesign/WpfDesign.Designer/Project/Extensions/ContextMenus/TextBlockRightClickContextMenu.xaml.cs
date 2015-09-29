@@ -17,13 +17,12 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Linq;
 using System.Windows;
 using ICSharpCode.WpfDesign.Designer.PropertyGrid.Editors.FormatedTextEditor;
-using ICSharpCode.WpfDesign.UIExtensions;
 using ICSharpCode.WpfDesign.Designer.themes;
+using ICSharpCode.WpfDesign.UIExtensions;
 
-namespace ICSharpCode.WpfDesign.Designer.Extensions
+namespace ICSharpCode.WpfDesign.Designer.Extensions.ContextMenus
 {
 	public partial class TextBlockRightClickContextMenu
 	{

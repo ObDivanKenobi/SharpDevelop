@@ -16,40 +16,28 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-using System.Windows;
-using System.Windows.Controls;
-using ICSharpCode.WpfDesign.Adorners;
-using ICSharpCode.WpfDesign.Extensions;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using ICSharpCode.WpfDesign.PropertyGrid;
 
-namespace ICSharpCode.WpfDesign.Designer.Extensions.ContextMenus
+namespace ICSharpCode.WpfDesign.Designer.Services
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	[ExtensionServer(typeof(OnlyOneItemSelectedExtensionServer))]
-	[ExtensionFor(typeof(UIElement))]
-	[Extension(Order = 50)]
-    public class WrapItemContextMenuExtension : SelectionAdornerProvider
+	public class ComponentPropertyService : IComponentPropertyService
 	{
-		DesignPanel panel;
-		ContextMenu contextMenu;
-
-		protected override void OnInitialized()
+		public virtual IEnumerable<MemberDescriptor> GetAvailableProperties(DesignItem designItem)
 		{
-			base.OnInitialized();
-
-            contextMenu = new WrapItemContextMenu(ExtendedItem);
-			panel = ExtendedItem.Context.Services.DesignPanel as DesignPanel;
-			if (panel != null)
-				panel.AddContextMenu(contextMenu);
+			return TypeHelper.GetAvailableProperties(designItem.Component);
 		}
-		
-		protected override void OnRemove()
-		{
-			if (panel != null)
-				panel.RemoveContextMenu(contextMenu);
 
-			base.OnRemove();
+		public virtual IEnumerable<MemberDescriptor> GetAvailableEvents(DesignItem designItem)
+		{
+			return TypeHelper.GetAvailableEvents(designItem.ComponentType);
+		}
+
+		public virtual IEnumerable<MemberDescriptor> GetCommonAvailableProperties(IEnumerable<DesignItem> designItems)
+		{
+			return TypeHelper.GetCommonAvailableProperties(designItems.Select(t => t.Component));
 		}
 	}
 }

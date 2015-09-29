@@ -17,11 +17,10 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Linq;
 using System.Windows;
 using ICSharpCode.WpfDesign.Designer.themes;
 
-namespace ICSharpCode.WpfDesign.Designer.Extensions
+namespace ICSharpCode.WpfDesign.Designer.Extensions.ContextMenus
 {
 	public partial class DefaultCommandsContextMenu
 	{

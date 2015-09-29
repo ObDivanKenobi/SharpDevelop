@@ -19,6 +19,7 @@
 using System;
 using System.Windows.Input;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 
 namespace ICSharpCode.WpfDesign
@@ -163,6 +164,20 @@ namespace ICSharpCode.WpfDesign
 	}
 	#endregion
 	
+	#region IComponentPropertyService
+	/// <summary>
+	/// Used to get properties for a Design Item.
+	/// </summary>
+	public interface IComponentPropertyService
+	{
+		IEnumerable<MemberDescriptor> GetAvailableProperties(DesignItem designItem);
+
+		IEnumerable<MemberDescriptor> GetAvailableEvents(DesignItem designItem);
+
+		IEnumerable<MemberDescriptor> GetCommonAvailableProperties(IEnumerable<DesignItem> designItems);
+	}
+	#endregion
+
 	#region IPropertyDescriptionService
 	/// <summary>
 	/// Used to get a description for properties.

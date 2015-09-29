@@ -25,9 +25,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Markup;
+
 using ICSharpCode.WpfDesign.XamlDom;
 using ICSharpCode.WpfDesign.Designer.Services;
-using System.Windows.Markup;
 
 namespace ICSharpCode.WpfDesign.Designer.Xaml
 {

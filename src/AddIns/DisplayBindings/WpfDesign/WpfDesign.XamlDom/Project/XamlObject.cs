@@ -502,7 +502,12 @@ namespace ICSharpCode.WpfDesign.XamlDom
 		/// </summary>
 		public string GetXamlAttribute(string name)
 		{
-			return element.GetAttribute(name, XamlConstants.XamlNamespace);
+			var value = element.GetAttribute(name, XamlConstants.XamlNamespace);
+
+			if (string.IsNullOrEmpty(value))
+				value = element.GetAttribute(name, XamlConstants.Xaml2009Namespace);
+
+			return value;
 		}
 		
 		/// <summary>
@@ -538,9 +543,16 @@ namespace ICSharpCode.WpfDesign.XamlDom
 			else
 			{
 				var prefix = element.GetPrefixOfNamespace(XamlConstants.XamlNamespace);
+				var prefix2009 = element.GetPrefixOfNamespace(XamlConstants.Xaml2009Namespace);
 				if (!string.IsNullOrEmpty(prefix))
 				{
 					var attribute = element.OwnerDocument.CreateAttribute(prefix, name, XamlConstants.XamlNamespace);
+					attribute.InnerText = value;
+					element.SetAttributeNode(attribute);
+				}
+				else if (!string.IsNullOrEmpty(prefix2009))
+				{
+					var attribute = element.OwnerDocument.CreateAttribute(prefix, name, XamlConstants.Xaml2009Namespace);
 					attribute.InnerText = value;
 					element.SetAttributeNode(attribute);
 				}

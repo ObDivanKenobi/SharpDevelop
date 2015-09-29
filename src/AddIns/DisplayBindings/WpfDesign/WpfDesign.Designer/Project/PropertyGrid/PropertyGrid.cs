@@ -258,18 +258,15 @@ namespace ICSharpCode.WpfDesign.Designer.PropertyGrid
 		List<MemberDescriptor> GetDescriptors()
 		{
 			List<MemberDescriptor> list = new List<MemberDescriptor>();
+			var service = SingleItem.Services.GetService<IComponentPropertyService>();
 
-			if (SelectedItems.Count() == 1) {
-				foreach (MemberDescriptor d in TypeHelper.GetAvailableProperties(SingleItem.Component)) {
-					list.Add(d);
-				}
-				foreach (MemberDescriptor d in TypeHelper.GetAvailableEvents(SingleItem.ComponentType)) {
-					list.Add(d);
-				}
+			if (SelectedItems.Count() == 1)
+			{				
+				list.AddRange(service.GetAvailableProperties(SingleItem));
+				list.AddRange(service.GetAvailableEvents(SingleItem));
+								
 			} else {
-				foreach (MemberDescriptor d in TypeHelper.GetCommonAvailableProperties(SelectedItems.Select(t => t.Component))) {
-					list.Add(d);
-				}
+				list.AddRange(service.GetCommonAvailableProperties(SelectedItems));
 			}
 
 			return list;
@@ -296,7 +293,7 @@ namespace ICSharpCode.WpfDesign.Designer.PropertyGrid
 			PropertyNode node;
 			if (nodeFromDescriptor.TryGetValue(md, out node)) {
 				node.Load(designProperties);
-			} else {
+			} else {				
 				node = new PropertyNode();
 				node.Load(designProperties);
 				if (node.IsEvent) {

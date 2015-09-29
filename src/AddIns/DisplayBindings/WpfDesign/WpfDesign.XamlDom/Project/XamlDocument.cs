@@ -257,17 +257,6 @@ namespace ICSharpCode.WpfDesign.XamlDom
 		        return string.Empty;
 		    }
 
-            //if (string.IsNullOrEmpty(prefix))
-            //{
-            //    var attr =
-            //        (_xmlDoc.DocumentElement.Attributes.Cast<XmlAttribute>()
-            //            .FirstOrDefault(x => x.Name.StartsWith("xmlns:") && x.Value == @namespace));
-            //    if (attr != null)
-            //    {
-            //        prefix = attr.Name.Split(':')[1];
-            //    }
-            //}
-            
 			if (String.IsNullOrEmpty(prefix))
 			{
 				prefix = _typeFinder.GetPrefixForXmlNamespace(@namespace);

@@ -17,12 +17,11 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using ICSharpCode.WpfDesign.Designer.themes;
 
-namespace ICSharpCode.WpfDesign.Designer.Extensions
+namespace ICSharpCode.WpfDesign.Designer.Extensions.ContextMenus
 {
 	public partial class WrapItemContextMenu
 	{

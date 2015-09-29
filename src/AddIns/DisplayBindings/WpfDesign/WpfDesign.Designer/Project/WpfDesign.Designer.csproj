@@ -168,6 +168,7 @@
     <Compile Include="PropertyGrid\Editors\TimeSpanEditor.xaml.cs">
       <DependentUpon>TimeSpanEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\ComponentPropertyService.cs" />
     <Compile Include="themes\VersionedAssemblyResourceDictionary.cs" />
     <Compile Include="Translations.cs" />
     <Compile Include="Configuration\AssemblyInfo.cs" />
