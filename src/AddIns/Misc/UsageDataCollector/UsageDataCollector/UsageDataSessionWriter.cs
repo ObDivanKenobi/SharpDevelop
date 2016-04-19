@@ -89,7 +89,7 @@ namespace ICSharpCode.UsageDataCollector
 						FlushOutstandingChanges();
 					} catch (SQLiteException ex) {
 						// Ignore exception if the DB file is locked
-						if (ex.ErrorCode != SQLiteErrorCode.Locked)
+						if (ex.ResultCode != SQLiteErrorCode.Locked)
 							throw;
 					}
 				} catch (Exception ex) {

@@ -40,12 +40,17 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.Web.XmlTransform">
       <HintPath>..\RequiredLibraries\Microsoft.Web.XmlTransform.dll</HintPath>
     </Reference>
-    <Reference Include="NuGet.Console.Types">
+    <Reference Include="NuGet.Console.Types, Version=2.8.60723.765, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\RequiredLibraries\NuGet.Console.Types.dll</HintPath>
     </Reference>
     <Reference Include="NuGet.Core">
@@ -66,16 +71,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuration" />
-    <Folder Include="Scripts" />
-    <Folder Include="Resources" />
-    <Folder Include="Src" />
-    <Folder Include="Src\Design" />
-    <Folder Include="Src\EnvDTE" />
-    <Folder Include="Src\VisualStudio" />
-    <Folder Include="Src\Scripting" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\..\..\..\Main\GlobalAssemblyInfo.cs">
       <Link>Configuration\GlobalAssemblyInfo.cs</Link>
