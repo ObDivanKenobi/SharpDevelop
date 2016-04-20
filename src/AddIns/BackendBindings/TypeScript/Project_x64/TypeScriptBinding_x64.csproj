@@ -7,8 +7,8 @@
     <ProjectGuid>{47F96DF0-8362-4F46-99E1-9F277363E85B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TypeScriptBinding_x64</RootNamespace>
-    <AssemblyName>TypeScriptBinding_x64</AssemblyName>
+    <RootNamespace>ICSharpCode.TypeScriptBinding</RootNamespace>
+    <AssemblyName>TypeScriptBinding</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\AddIns\BackendBindings\TypeScriptBinding\</OutputPath>
+    <OutputPath>..\..\..\..\..\AddIns\BackendBindings\TypeScriptBinding_x64\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\AddIns\BackendBindings\TypeScriptBinding\</OutputPath>
+    <OutputPath>..\..\..\..\..\AddIns\BackendBindings\TypeScriptBinding_x64\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -430,38 +430,46 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Project\TypeScriptBinding.addin">
+    <None Include="..\Project\TypeScriptBinding.addin">
       <Link>TypeScriptBinding.addin</Link>
-    </Content>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Libraries\AvalonEdit\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
       <Project>{6c55b776-26d4-4db3-a6ab-87e783b2f3d1}</Project>
       <Name>ICSharpCode.AvalonEdit</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Libraries\NRefactory\ICSharpCode.NRefactory\ICSharpCode.NRefactory.csproj">
       <Project>{3b2a5653-ec97-4001-bb9b-d90f1af2c371}</Project>
       <Name>ICSharpCode.NRefactory</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
       <Project>{2748ad25-9c63-4e12-877b-4dce96fbed54}</Project>
       <Name>ICSharpCode.SharpDevelop</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Main\Core\Project\ICSharpCode.Core.csproj">
       <Project>{35cef10f-2d4c-45f2-9dd1-161e0fec583c}</Project>
       <Name>ICSharpCode.Core</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Main\ICSharpCode.Core.Presentation\ICSharpCode.Core.Presentation.csproj">
       <Project>{7e4a7172-7ff5-48d0-b719-7cd959dd1ac9}</Project>
       <Name>ICSharpCode.Core.Presentation</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\DisplayBindings\AvalonEdit.AddIn\AvalonEdit.AddIn.csproj">
       <Project>{0162e499-42d0-409b-aa25-eed21f75336b}</Project>
       <Name>AvalonEdit.AddIn</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Misc\SearchAndReplace\Project\SearchAndReplace.csproj">
       <Project>{9196dd8a-b4d4-4780-8742-c5762e547fc2}</Project>
       <Name>SearchAndReplace</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
