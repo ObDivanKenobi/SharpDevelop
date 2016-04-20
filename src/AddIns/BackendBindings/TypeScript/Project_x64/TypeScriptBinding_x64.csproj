@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{47F96DF0-8362-4F46-99E1-9F277363E85B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TypeScriptBinding_x64</RootNamespace>
+    <AssemblyName>TypeScriptBinding_x64</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\AddIns\BackendBindings\TypeScriptBinding\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\AddIns\BackendBindings\TypeScriptBinding\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Noesis.Javascript, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\packages\Noesis.Javascript.0.7.1.0\lib\net40\amd64\Noesis.Javascript.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\Main\GlobalAssemblyInfo.cs">
+      <Link>Configuration\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Configuration\AssemblyInfo.cs">
+      <Link>Configuration\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\BuildConfiguration.cs">
+      <Link>Src\BuildConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\CompileTypeScriptAction.cs">
+      <Link>Src\CompileTypeScriptAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\CompileTypeScriptFilesOnBuildAction.cs">
+      <Link>Src\CompileTypeScriptFilesOnBuildAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\CompileTypeScriptOnSaveFileAction.cs">
+      <Link>Src\CompileTypeScriptOnSaveFileAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\DisplayValue.cs">
+      <Link>Src\DisplayValue.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\FileNameExtensions.cs">
+      <Link>Src\FileNameExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\FileProjectItemExtensions.cs">
+      <Link>Src\FileProjectItemExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\FindTypeScriptReferencesCommand.cs">
+      <Link>Src\FindTypeScriptReferencesCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\GoToTypeScriptDefinitionCommand.cs">
+      <Link>Src\GoToTypeScriptDefinitionCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompilerOptions.cs">
+      <Link>Src\Hosting\CompilerOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompilerResult.cs">
+      <Link>Src\Hosting\CompilerResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompletionEntry.cs">
+      <Link>Src\Hosting\CompletionEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompletionEntryDetails.cs">
+      <Link>Src\Hosting\CompletionEntryDetails.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompletionEntryDetailsProvider.cs">
+      <Link>Src\Hosting\CompletionEntryDetailsProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompletionEntryDetailsResult.cs">
+      <Link>Src\Hosting\CompletionEntryDetailsResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompletionInfo.cs">
+      <Link>Src\Hosting\CompletionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\CompletionResult.cs">
+      <Link>Src\Hosting\CompletionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\DefaultJavaScriptContext.cs">
+      <Link>Src\Hosting\DefaultJavaScriptContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\DefinitionInfo.cs">
+      <Link>Src\Hosting\DefinitionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\DefinitionResult.cs">
+      <Link>Src\Hosting\DefinitionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\Diagnostic.cs">
+      <Link>Src\Hosting\Diagnostic.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\DiagnosticCategory.cs">
+      <Link>Src\Hosting\DiagnosticCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\DiagnosticsResult.cs">
+      <Link>Src\Hosting\DiagnosticsResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\EmitOutput.cs">
+      <Link>Src\Hosting\EmitOutput.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\GeneratedTypeScriptFile.cs">
+      <Link>Src\Hosting\GeneratedTypeScriptFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ICancellationToken.cs">
+      <Link>Src\Hosting\ICancellationToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\IJavaScriptContext.cs">
+      <Link>Src\Hosting\IJavaScriptContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ILanguageServiceShimHost.cs">
+      <Link>Src\Hosting\ILanguageServiceShimHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ILogger.cs">
+      <Link>Src\Hosting\ILogger.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\IScriptLoader.cs">
+      <Link>Src\Hosting\IScriptLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\IScriptSnapshotShim.cs">
+      <Link>Src\Hosting\IScriptSnapshotShim.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ITypeScriptContextFactory.cs">
+      <Link>Src\Hosting\ITypeScriptContextFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\JsxEmit.cs">
+      <Link>Src\Hosting\JsxEmit.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\LanguageServiceCancellationToken.cs">
+      <Link>Src\Hosting\LanguageServiceCancellationToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\LanguageServiceCompiler.cs">
+      <Link>Src\Hosting\LanguageServiceCompiler.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\LanguageServiceCompilerResult.cs">
+      <Link>Src\Hosting\LanguageServiceCompilerResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\LanguageServiceLogger.cs">
+      <Link>Src\Hosting\LanguageServiceLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\LanguageServiceNullLogger.cs">
+      <Link>Src\Hosting\LanguageServiceNullLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\LanguageServiceShimHost.cs">
+      <Link>Src\Hosting\LanguageServiceShimHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ModuleKind.cs">
+      <Link>Src\Hosting\ModuleKind.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ModuleResolutionKind.cs">
+      <Link>Src\Hosting\ModuleResolutionKind.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\NavigateToItem.cs">
+      <Link>Src\Hosting\NavigateToItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\NavigationBarItem.cs">
+      <Link>Src\Hosting\NavigationBarItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\NavigationInfo.cs">
+      <Link>Src\Hosting\NavigationInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\NewLineKind.cs">
+      <Link>Src\Hosting\NewLineKind.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\OutputFile.cs">
+      <Link>Src\Hosting\OutputFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ReferenceEntry.cs">
+      <Link>Src\Hosting\ReferenceEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ReferencesResult.cs">
+      <Link>Src\Hosting\ReferencesResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\Script.cs">
+      <Link>Src\Hosting\Script.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ScriptLoader.cs">
+      <Link>Src\Hosting\ScriptLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ScriptsContainer.cs">
+      <Link>Src\Hosting\ScriptsContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ScriptSnapshotShim.cs">
+      <Link>Src\Hosting\ScriptSnapshotShim.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\ScriptTarget.cs">
+      <Link>Src\Hosting\ScriptTarget.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\SignatureHelpItem.cs">
+      <Link>Src\Hosting\SignatureHelpItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\SignatureHelpItems.cs">
+      <Link>Src\Hosting\SignatureHelpItems.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\SignatureHelpParameter.cs">
+      <Link>Src\Hosting\SignatureHelpParameter.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\SignatureResult.cs">
+      <Link>Src\Hosting\SignatureResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\SymbolDisplayPart.cs">
+      <Link>Src\Hosting\SymbolDisplayPart.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\TextChangeRange.cs">
+      <Link>Src\Hosting\TextChangeRange.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\TextSpan.cs">
+      <Link>Src\Hosting\TextSpan.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\TextSpanResult.cs">
+      <Link>Src\Hosting\TextSpanResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\TypeScriptContext.cs">
+      <Link>Src\Hosting\TypeScriptContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\TypeScriptContextFactory.cs">
+      <Link>Src\Hosting\TypeScriptContextFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\Hosting\TypeScriptContextProvider.cs">
+      <Link>Src\Hosting\TypeScriptContextProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\InitializeTypeScriptServiceCommand.cs">
+      <Link>Src\InitializeTypeScriptServiceCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\ITypeScriptOptions.cs">
+      <Link>Src\ITypeScriptOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\RegisterIconsCommand.cs">
+      <Link>Src\RegisterIconsCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\RegisterTypeScriptCompileBuildOnCommand.cs">
+      <Link>Src\RegisterTypeScriptCompileBuildOnCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\RegisterTypeScriptCompileOnSaveFileCommand.cs">
+      <Link>Src\RegisterTypeScriptCompileOnSaveFileCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\RenameTypeScriptReferenceCommand.cs">
+      <Link>Src\RenameTypeScriptReferenceCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptCodeCompletionBinding.cs">
+      <Link>Src\TypeScriptCodeCompletionBinding.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptCompletionItem.cs">
+      <Link>Src\TypeScriptCompletionItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptCompletionItemProvider.cs">
+      <Link>Src\TypeScriptCompletionItemProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptFile.cs">
+      <Link>Src\TypeScriptFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptFileExtensions.cs">
+      <Link>Src\TypeScriptFileExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptFormattingStrategy.cs">
+      <Link>Src\TypeScriptFormattingStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptFunctionInsightItem.cs">
+      <Link>Src\TypeScriptFunctionInsightItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptFunctionInsightProvider.cs">
+      <Link>Src\TypeScriptFunctionInsightProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptInsightWindowHandler.cs">
+      <Link>Src\TypeScriptInsightWindowHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptLanguageBinding.cs">
+      <Link>Src\TypeScriptLanguageBinding.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptOptions.cs">
+      <Link>Src\TypeScriptOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptParser.cs">
+      <Link>Src\TypeScriptParser.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptParserService.cs">
+      <Link>Src\TypeScriptParserService.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptProject.cs">
+      <Link>Src\TypeScriptProject.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptProjectMonitor.cs">
+      <Link>Src\TypeScriptProjectMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptProjectOpenConditionEvaluator.cs">
+      <Link>Src\TypeScriptProjectOpenConditionEvaluator.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptProjectOptionsPanel.xaml.cs">
+      <Link>Src\TypeScriptProjectOptionsPanel.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptResolveContext.cs">
+      <Link>Src\TypeScriptResolveContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptService.cs">
+      <Link>Src\TypeScriptService.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptTask.cs">
+      <Link>Src\TypeScriptTask.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptTaskService.cs">
+      <Link>Src\TypeScriptTaskService.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptUnresolvedFile.cs">
+      <Link>Src\TypeScriptUnresolvedFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptUnresolvedTypeDefinition.cs">
+      <Link>Src\TypeScriptUnresolvedTypeDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\TypeScriptWorkbenchMonitor.cs">
+      <Link>Src\TypeScriptWorkbenchMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\Project\Src\UpdateProjectBrowserFileNodesVisitor.cs">
+      <Link>Src\UpdateProjectBrowserFileNodesVisitor.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Project\Resources\ImageResources.resx">
+      <Link>Resources\ImageResources.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Project\Resources\TypeScript.xshd">
+      <Link>Resources\TypeScript.xshd</Link>
+    </None>
+    <None Include="..\Project\Scripts\package.json">
+      <Link>Scripts\package.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Templates\TypeScript.EmptyFile.xft">
+      <Link>Templates\TypeScript.EmptyFile.xft</Link>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Project\Scripts\compile.js">
+      <Link>Scripts\compile.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\completion.js">
+      <Link>Scripts\completion.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\completionDetails.js">
+      <Link>Scripts\completionDetails.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\definition.js">
+      <Link>Scripts\definition.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\diagnostics.js">
+      <Link>Scripts\diagnostics.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\main.js">
+      <Link>Scripts\main.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\navigation.js">
+      <Link>Scripts\navigation.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\references.js">
+      <Link>Scripts\references.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\signature.js">
+      <Link>Scripts\signature.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\tsc.js">
+      <Link>Scripts\tsc.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\TypeScript-License.txt">
+      <Link>Scripts\TypeScript-License.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Project\Scripts\typescriptServices.js">
+      <Link>Scripts\typescriptServices.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Project\Scripts\lib.d.ts">
+      <Link>Scripts\lib.d.ts</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\Project\Src\TypeScriptProjectOptionsPanel.xaml">
+      <Link>Src\TypeScriptProjectOptionsPanel.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Project\TypeScriptBinding.addin">
+      <Link>TypeScriptBinding.addin</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Libraries\AvalonEdit\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
+      <Project>{6c55b776-26d4-4db3-a6ab-87e783b2f3d1}</Project>
+      <Name>ICSharpCode.AvalonEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Libraries\NRefactory\ICSharpCode.NRefactory\ICSharpCode.NRefactory.csproj">
+      <Project>{3b2a5653-ec97-4001-bb9b-d90f1af2c371}</Project>
+      <Name>ICSharpCode.NRefactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
+      <Project>{2748ad25-9c63-4e12-877b-4dce96fbed54}</Project>
+      <Name>ICSharpCode.SharpDevelop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Main\Core\Project\ICSharpCode.Core.csproj">
+      <Project>{35cef10f-2d4c-45f2-9dd1-161e0fec583c}</Project>
+      <Name>ICSharpCode.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Main\ICSharpCode.Core.Presentation\ICSharpCode.Core.Presentation.csproj">
+      <Project>{7e4a7172-7ff5-48d0-b719-7cd959dd1ac9}</Project>
+      <Name>ICSharpCode.Core.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DisplayBindings\AvalonEdit.AddIn\AvalonEdit.AddIn.csproj">
+      <Project>{0162e499-42d0-409b-aa25-eed21f75336b}</Project>
+      <Name>AvalonEdit.AddIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Misc\SearchAndReplace\Project\SearchAndReplace.csproj">
+      <Project>{9196dd8a-b4d4-4780-8742-c5762e547fc2}</Project>
+      <Name>SearchAndReplace</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Noesis.Javascript.0.7.1.0\NativeBinaries\net40\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Noesis.Javascript.0.7.1.0\NativeBinaries\net40\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
