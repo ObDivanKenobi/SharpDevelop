@@ -26,13 +26,14 @@
     <Optimize>False</Optimize>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>Full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>False</DebugSymbols>
     <Optimize>true</Optimize>
     <DefineConstants>TRACE</DefineConstants>
     <DebugType>None</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
@@ -48,13 +49,13 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="SharpSvn, Version=1.8003.2572.15298, Culture=neutral, PublicKeyToken=d729672594885a28">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libraries\SharpSvn\x64\SharpSvn.dll</HintPath>
+    <Reference Include="SharpSvn, Version=1.9003.3845.110, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
+      <HintPath>..\..\..\..\packages\SharpSvn.1.9-x86.1.9003.3845.110\lib\net40\SharpSvn.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="SharpSvn.UI, Version=1.8003.2572.15298, Culture=neutral, PublicKeyToken=33789aa53ca44aa9">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libraries\SharpSvn\x64\SharpSvn.UI.dll</HintPath>
+    <Reference Include="SharpSvn.UI, Version=1.9003.3845.110, Culture=neutral, PublicKeyToken=33789aa53ca44aa9, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\SharpSvn.1.9-x86.1.9003.3845.110\lib\net40\SharpSvn.UI.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -106,6 +107,7 @@
     <EmbeddedResource Include="Src\Gui\HistoryViewDisplayBinding\InfoPanel.resx">
       <DependentUpon>InfoPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">

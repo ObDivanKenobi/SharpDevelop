@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF124CE6-9386-4A17-BE37-14E335982DCB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICSharpCode.Svn</RootNamespace>
+    <AssemblyName>SubversionAddIn_x64</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\AddIns\VersionControl\SubversionAddIn\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\AddIns\VersionControl\SubversionAddIn\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SharpSvn, Version=1.9003.3845.110, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=AMD64">
+      <HintPath>..\..\..\..\packages\SharpSvn.1.9-x64.1.9003.3845.110\lib\net40\SharpSvn.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpSvn.UI, Version=1.9003.3845.110, Culture=neutral, PublicKeyToken=33789aa53ca44aa9, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\SharpSvn.1.9-x64.1.9003.3845.110\lib\net40\SharpSvn.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\Main\GlobalAssemblyInfo.cs">
+      <Link>Configuration\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Configuration\AssemblyInfo.cs">
+      <Link>Configuration\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\AddInOptions.cs">
+      <Link>Src\AddInOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Commands\AutostartCommands.cs">
+      <Link>Src\Commands\AutostartCommands.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Commands\CheckoutCommands.cs">
+      <Link>Src\Commands\CheckoutCommands.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Commands\ProjectBrowserCommands.cs">
+      <Link>Src\Commands\ProjectBrowserCommands.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\HistoryViewDisplayBinding\HistoryView.cs">
+      <Link>Src\Gui\HistoryViewDisplayBinding\HistoryView.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\HistoryViewDisplayBinding\HistoryViewDisplayBinding.cs">
+      <Link>Src\Gui\HistoryViewDisplayBinding\HistoryViewDisplayBinding.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\HistoryViewDisplayBinding\HistoryViewPanel.cs">
+      <Link>Src\Gui\HistoryViewDisplayBinding\HistoryViewPanel.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\HistoryViewDisplayBinding\InfoPanel.cs">
+      <Link>Src\Gui\HistoryViewDisplayBinding\InfoPanel.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\HistoryViewDisplayBinding\InfoPanel.Designer.cs">
+      <Link>Src\Gui\HistoryViewDisplayBinding\InfoPanel.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\ProjectBrowserVisitor\OverlayIconManager.cs">
+      <Link>Src\Gui\ProjectBrowserVisitor\OverlayIconManager.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\SubversionOptionsPanel.xaml.cs">
+      <Link>Src\Gui\SubversionOptionsPanel.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\SvnGuiWrapper.cs">
+      <Link>Src\Gui\SvnGuiWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\Gui\TortoiseSvnNotFoundForm.cs">
+      <Link>Src\Gui\TortoiseSvnNotFoundForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\SubversionStateCondition.cs">
+      <Link>Src\SubversionStateCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\SvnClientWrapper.cs">
+      <Link>Src\SvnClientWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\SvnMessageView.cs">
+      <Link>Src\SvnMessageView.cs</Link>
+    </Compile>
+    <Compile Include="..\SubversionAddIn\Src\SvnVersionProvider.cs">
+      <Link>Src\SvnVersionProvider.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\SubversionAddIn\ICSharpCode.Svn.addin">
+      <Link>ICSharpCode.Svn.addin</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\SubversionAddIn\Src\Gui\SubversionOptionsPanel.xaml">
+      <Link>Src\Gui\SubversionOptionsPanel.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\SubversionAddIn\Src\Gui\HistoryViewDisplayBinding\InfoPanel.resx">
+      <Link>Src\Gui\HistoryViewDisplayBinding\InfoPanel.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
+      <Project>{2748ad25-9c63-4e12-877b-4dce96fbed54}</Project>
+      <Name>ICSharpCode.SharpDevelop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Main\Core\Project\ICSharpCode.Core.csproj">
+      <Project>{35cef10f-2d4c-45f2-9dd1-161e0fec583c}</Project>
+      <Name>ICSharpCode.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Main\ICSharpCode.Core.Presentation\ICSharpCode.Core.Presentation.csproj">
+      <Project>{7e4a7172-7ff5-48d0-b719-7cd959dd1ac9}</Project>
+      <Name>ICSharpCode.Core.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Main\ICSharpCode.Core.WinForms\ICSharpCode.Core.WinForms.csproj">
+      <Project>{857ca1a3-fc88-4be0-ab6a-d1ee772ab288}</Project>
+      <Name>ICSharpCode.Core.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Main\ICSharpCode.SharpDevelop.Widgets\Project\ICSharpCode.SharpDevelop.Widgets.csproj">
+      <Project>{8035765f-d51f-4a0c-a746-2fd100e19419}</Project>
+      <Name>ICSharpCode.SharpDevelop.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
