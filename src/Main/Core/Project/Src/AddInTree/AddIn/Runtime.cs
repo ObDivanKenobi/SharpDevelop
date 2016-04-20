@@ -88,7 +88,11 @@ namespace ICSharpCode.Core
 					
 					try {
 						if (assembly[0] == ':') {
-							loadedAssembly = LoadAssembly(assembly.Substring(1));
+							var name = assembly.Substring(1);
+							if (IntPtr.Size == 8 && name == "SharpDevelop") {
+								name = "SharpDevelop64";
+							}
+							loadedAssembly = LoadAssembly(name);
 						} else if (assembly[0] == '$') {
 							int pos = assembly.IndexOf('/');
 							if (pos < 0)

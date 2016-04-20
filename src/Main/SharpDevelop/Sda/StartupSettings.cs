@@ -36,7 +36,7 @@ namespace ICSharpCode.SharpDevelop.Sda
 		string configDirectory;
 		string dataDirectory;
 		string domPersistencePath;
-		string resourceAssemblyName = "SharpDevelop";
+		string resourceAssemblyName = typeof(StartupSettings).Assembly.GetName().Name;
 		internal List<string> addInDirectories = new List<string>();
 		internal List<string> addInFiles = new List<string>();
 		

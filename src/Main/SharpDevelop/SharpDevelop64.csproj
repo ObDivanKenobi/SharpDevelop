@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.41115</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1152B71B-3C05-4598-B20D-823B5D40559E}</ProjectGuid>
-    <AssemblyName>SharpDevelop</AssemblyName>
+    <ProjectGuid>{DADFFCC9-CAFD-41C4-A648-A7A6B7245AC4}</ProjectGuid>
+    <AssemblyName>SharpDevelop64</AssemblyName>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>False</NoStdLib>
     <NoConfig>False</NoConfig>
@@ -41,7 +41,7 @@
     <OutputType>Exe</OutputType>
     <DebugSymbols>true</DebugSymbols>
     <Prefer32Bit>false</Prefer32Bit>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>None</DebugType>
@@ -51,7 +51,7 @@
     <OutputType>WinExe</OutputType>
     <DebugSymbols>false</DebugSymbols>
     <Prefer32Bit>false</Prefer32Bit>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(SharpDevelopOutputType)' != '' ">
     <OutputType>$(SharpDevelopOutputType)</OutputType>
@@ -258,6 +258,7 @@
     <Compile Include="Sda\WorkbenchSettings.cs" />
     <EmbeddedResource Include="..\..\..\data\resources\StringResources.resx">
       <Link>Resources\StringResources.resx</Link>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="..\..\..\data\resources\StringResources.resx">
       <Link>StringResources.resx</Link>
@@ -276,9 +277,7 @@
       <LogicalName>Resources.SplashScreen.jpg</LogicalName>
     </EmbeddedResource>
     <Compile Include="Configuration\AssemblyInfo.cs" />
-    <Content Include="app.config">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
+    <None Include="app64.config" />
     <None Include="Templates\SharpDevelop.Setup.sln" />
   </ItemGroup>
   <ItemGroup>
