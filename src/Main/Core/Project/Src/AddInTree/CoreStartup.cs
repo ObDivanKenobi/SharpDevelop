@@ -73,7 +73,13 @@ namespace ICSharpCode.Core
 		{
 			if (addInDir == null)
 				throw new ArgumentNullException("addInDir");
-			addInFiles.AddRange(Directory.GetFiles(addInDir, "*.addin", SearchOption.AllDirectories));
+
+			foreach (var addInFile in Directory.GetFiles(addInDir, "*.addin", SearchOption.AllDirectories))
+			{
+				var addin = GetAddinFileNameAwareOfBitness(addInFile);
+				if (addin != null)
+					addInFiles.Add(addin);
+			}
 		}
 		
 		/// <summary>
@@ -83,7 +89,10 @@ namespace ICSharpCode.Core
 		{
 			if (addInFile == null)
 				throw new ArgumentNullException("addInFile");
-			addInFiles.Add(addInFile);
+
+			var addin = GetAddinFileNameAwareOfBitness(addInFile);
+			if (addin != null)
+				addInFiles.Add(addin);
 		}
 		
 		/// <summary>
@@ -174,6 +183,20 @@ namespace ICSharpCode.Core
 			container.AddService(typeof(IAddInTree), addInTree);
 			container.AddService(typeof(ApplicationStateInfoService), applicationStateInfoService);
 			StringParser.RegisterStringTagProvider(new AppNameProvider { appName = applicationName });
+		}
+
+		private string GetAddinFileNameAwareOfBitness(string file)
+		{
+			if (Path.GetDirectoryName(file).EndsWith("_x64"))
+				return null;
+
+			if (IntPtr.Size == 8)
+			{
+				var addin64Name = Path.Combine(Path.GetDirectoryName(file) + "_x64", Path.GetFileName(file));
+				if (File.Exists(addin64Name))
+					return addin64Name;
+			}
+			return file;
 		}
 		
 		sealed class AppNameProvider : IStringTagProvider

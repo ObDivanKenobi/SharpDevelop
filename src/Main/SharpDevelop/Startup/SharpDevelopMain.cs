@@ -63,11 +63,6 @@ namespace ICSharpCode.SharpDevelop.Startup
 		[STAThread()]
 		public static void Main(string[] args)
 		{
-			if (IntPtr.Size == 8)
-			{
-				AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve64Bit;
-			}
-
 			commandLineArgs = args; // Needed by UseExceptionBox
 			
 			// Do not use LoggingService here (see comment in Run(string[]))
@@ -85,16 +80,6 @@ namespace ICSharpCode.SharpDevelop.Startup
 			} else {
 				Run();
 			}
-		}
-		
-		private static Assembly CurrentDomain_AssemblyResolve64Bit(object sender, ResolveEventArgs args)
-		{
-			var file = "x64\\" + new AssemblyName(args.Name).Name + ".dll";
-
-			if (File.Exists(file))
-				return Assembly.Load(file);
-
-			return null;
 		}
 
 		static void HandleMainException(Exception ex)
